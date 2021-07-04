@@ -30,17 +30,17 @@ if __name__ == '__main__':
         raw_f.seek(0)
         qr_y = len(raw_f.readlines())
         raw_f.seek(0)
-        pic = Image.new('RGB', (qr_x, qr_y))
+        qrc = Image.new('RGB', (qr_x, qr_y))
         y = 0
         for raw_contain_deal in raw_f:
             i = 0
             for x in range(0, qr_x):
                 if raw_contain_deal[i] == black:
-                    pic.putpixel([x, y], (0, 0, 0))
+                    qrc.putpixel([x, y], (0, 0, 0))
                 else:
-                    pic.putpixel([x, y], (255, 255, 255))
+                    qrc.putpixel([x, y], (255, 255, 255))
                 i += 1
             y += 1
-    pic.show()
-    pic.save('output.png')
+    qrc.show()
+    qrc.save('output.png', 'png')
 
